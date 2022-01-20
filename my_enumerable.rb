@@ -1,11 +1,18 @@
 module MyEnumerable
+  def all?
+    each do |elem| return false unless yield(elem)
+    end
+    true
+  end
+
+  def any?
+    each do |elem| return true unless yield(elem)
+    end
+    false
+  end
+
+  def filter
+    each do |elem| return elem
+  end
 end
 
-# include Enumerable
-def my_array
-  puts work = [3, 1, 2, 5, 4].all? { |num| num >= 1 }
-end
-
-
-
-print my_array

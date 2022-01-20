@@ -6,13 +6,17 @@ module MyEnumerable
   end
 
   def any?
-    each do |elem| return true unless yield(elem)
+    each do |elem| return true if yield(elem)
     end
     false
   end
 
   def filter
-    each do |elem| return elem
+    array_filter = []
+      each do  |elem| 
+        array_filter << (elem) if yield (elem)
+      end
+      array_filter
   end
 end
 
